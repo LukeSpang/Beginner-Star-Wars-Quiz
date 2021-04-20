@@ -10,7 +10,7 @@
     <header>
         <nav>
             <a href="assets/score.js">High Scores</a>
-            <span id="timer">Time: 0</span>
+            <span id="timer">Time: 75</span>
         </nav>
     </header>
 
@@ -22,13 +22,14 @@
     
     
     <ol hidden id="container">
-        <li class = "option" id="one" data-choice="OptionOne"></li>
-        <li class = "option" id="two" data-choice="OptionTwo"></li>
-        <li class = "option" id="three" data-choice="OptionThree"></li>
-        <li class = "option" id="four" data-choice="OptionFour"></li>
+        <span id = "questionPromp"></span>
+        <button><li class = "option" id="one" data-choice="OptionOne"></li></button>
+        <button><li class = "option" id="two" data-choice="OptionTwo"></li></button>
+        <button><li class = "option" id="three" data-choice="OptionThree"></li></button>
+        <button><li class = "option" id="four" data-choice="OptionFour"></li></button>
     </ol>
 
-    <p id="finalScore" hidden>Your Final Score is: <span id="score"></span></p>
+    <p id="finalScore" hidden>Your Final Score is: <span id="userScore"></span></p>
     <form hidden id="submit-form" method="POST" action="score.html">
         <div class = "inputInitials">
             <label for="initials">Enter Initials:</label>
