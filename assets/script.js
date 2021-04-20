@@ -1,48 +1,83 @@
-var quizContainer = document.getElementById('quiz');
-var button = document.getElementById('startbutton');
-var timerElement = document.getElementById('timer');
-var timerCount = 5;
+var container = document.getElementById('container');
+var startButton = document.getElementById('startbutton');
+var questionPosition = 0
+var optionOneEl = document.getElementById('one')
+var optionTwoEl = document.getElementById('two')
+var optionThreeEl = document.getElementById('three')
+var optionFourEl = document.getElementById('four')
+//var questionContainerElement = document.getElementById('questioncontainer');
+var nextbutton = document.getElementById('nextButton')
+//var timerElement = document.getElementById('timer');
+var timerCount = 75;
+//var mixQuestions
+//var currentIndex
+//let questionElement = document.getElementById('question')
+//let answerElement = document.getElementById('selections')
+
+var optionBox = document.querySelector('.option');
 
 
 
-function startTimer(){
-   var timer = setInterval(function(){
-        timerCount--;
-        timerElement.textContent = 'Time: '+ timerCount;
 
-        if(timerCount === 0){
-            clearInterval(timer);
-        }
-    }, 1000)
-}
-button.addEventListener("click",startTimer);
+
+
+
+
+
 
 var questions = [
     {
-        ques: "What is the name of the first Star Wars movie released in 1977?",
-        options: ['A New Hope', "Empire Strikes Back", "Revenge of the Sith", "Attack of the Clones"],
-        answer: "A New Hope"
+        question: "What is the name of the first Star Wars movie released in 1977?",
+        answers: 'A New Hope',
+        choiceOne: 'A New Hope',
+        choiceTwo: 'Empire Strikes Back',
+        choiceThree: 'Revenge of the Sith',
+        choiceFour: 'Attack of the Clones'
     },
     {
-        ques: "What is the name of the first Star Wars movie released in 1977?",
-        options: ['A New Hope', "Empire Strikes Back", "Revenge of the Sith", "Attack of the Clones"],
-        answer: "A New Hope"
+        question: "What is the name of the first Star Wars movie released in 1977?",
+        answers: 'A New Hope',
+        choiceOne: 'A New Hope',
+        choiceTwo: 'Empire Strikes Back',
+        choiceThree: 'Revenge of the Sith',
+        choiceFour: 'Attack of the Clones'
     },
     {
-        ques: "What is the name of the first Star Wars movie released in 1977?",
-        options: ['A New Hope', "Empire Strikes Back", "Revenge of the Sith", "Attack of the Clones"],
-        answer: "A New Hope"
+        question: "What is the name of the first Star Wars movie released in 1977?",
+        answers: 'A New Hope',
+        choiceOne: 'A New Hope',
+        choiceTwo: 'Empire Strikes Back',
+        choiceThree: 'Revenge of the Sith',
+        choiceFour: 'Attack of the Clones'
     },
     {
-        ques: "What is the name of the first Star Wars movie released in 1977?",
-        options: ['A New Hope', "Empire Strikes Back", "Revenge of the Sith", "Attack of the Clones"],
-        answer: "A New Hope"
+        question: "What is the name of the first Star Wars movie released in 1977?",
+        answers: 'A New Hope',
+        choiceOne: 'A New Hope',
+        choiceTwo: 'Empire Strikes Back',
+        choiceThree: 'Revenge of the Sith',
+        choiceFour: 'Attack of the Clones'
     },
+    
 ];
 
-var score = 0;
-var questionPosition = 0;
+startButton.addEventListener('click', function(event) { 
+    console.log(event)
+    document.getElementById("intro").hidden = true;
+    document.getElementById("startbutton").hidden = true;
+    container.removeAttribute('hidden');
+    //startTimer();
+    //question();
+});
 
-var questionDiv = document.getElementById("quiz");
-var quizQuestions = document.getElementById("ques");
-var quizAnswers = document.getElementById("options")
+optionBox[0].addEventListener('click',function(){
+    console.log('option one clicked');
+    if (questions[questionPosition].OptionOne == qustions[questionPosition].answers) 
+    console.log('correct answer');  
+})
+
+
+
+function setTimer(){
+
+}

@@ -14,13 +14,29 @@
         </nav>
     </header>
 
-    <h3>This is your coding quiz! Press the button below to start the quiz!</h3>
-    <button id="startbutton">Start Quiz</button>
-    
-    <div id="quiz">
-    <p id="ques"></p>
-    <ul id="options"></ul>
+    <h3 id="intro" data-state="visible">This is your coding quiz! Press the button below to start the quiz!</h3>
+    <div id="controls">
+                <button id="startbutton">Start Quiz</button>
+                <button hidden id="nextButton">Next</button>
     </div>
+    
+    
+    <ol hidden id="container">
+        <li class = "option" id="one" data-choice="OptionOne"></li>
+        <li class = "option" id="two" data-choice="OptionTwo"></li>
+        <li class = "option" id="three" data-choice="OptionThree"></li>
+        <li class = "option" id="four" data-choice="OptionFour"></li>
+    </ol>
+
+    <p id="finalScore" hidden>Your Final Score is: <span id="score"></span></p>
+    <form hidden id="submit-form" method="POST" action="score.html">
+        <div class = "inputInitials">
+            <label for="initials">Enter Initials:</label>
+            <input type="text" name="initials" id="initials">
+        </div>
+        <button id="submit">Submit Initials</button>
+    </form>
+    
         
     <script src="assets/script.js"></script>
 </body>
