@@ -11,9 +11,10 @@ var timerCount = 75;
 var questionPrompt = document.getElementById('questionPrompt');
 var finalScore = document.getElementById('finalScore');
 var userScore = document.getElementById('userScore');
-var optionBox = document.querySelector('.option');
 var userAnswer = document.querySelectorAll('.option');
 var answered = document.getElementById('answered');
+var correctSE = new Audio('./assets/audio/correctSE.mp3');
+var incorrectSE = new Audio('./assets/audio/incorrectSE.mp3');
 
 
 
@@ -27,7 +28,7 @@ var answered = document.getElementById('answered');
 var questions = [
     {
         question: "What is the name of the first Star Wars movie released in 1977?",
-        answers: 'A New Hope',
+        answer: 'OptionOne',
         choiceOne: 'A New Hope',
         choiceTwo: 'Empire Strikes Back',
         choiceThree: 'Revenge of the Sith',
@@ -35,7 +36,7 @@ var questions = [
     },
     {
         question: "What is the name of Anakin and Padme's son?",
-        answers: 'Luke',
+        answer: 'OptionOne',
         choiceOne: 'Luke',
         choiceTwo: 'Leon',
         choiceThree: 'Jeff',
@@ -43,7 +44,7 @@ var questions = [
     },
     {
         question: "What color is Darth Vader's Lightsaber?",
-        answers: 'Red',
+        answer: 'OptionOne',
         choiceOne: 'Red',
         choiceTwo: 'Green',
         choiceThree: 'Purple',
@@ -51,7 +52,7 @@ var questions = [
     },
     {
         question: "Someone says to you, General Kenobi! What do you say back?",
-        answers: 'Hello there!',
+        answer: 'OptionOne',
         choiceOne: 'Hello there!',
         choiceTwo: 'Hey whats up?',
         choiceThree: 'Excuse me? That is not my name.',
@@ -69,17 +70,27 @@ startButton.addEventListener('click', function(event) {
     question();
 });
 
+
+//user input comparison to quiz answers ***bugged***
 for (var index = 0; index < questions.length; index++) {
-    userAnswer[index].addEventListener('click', function(){
+    userAnswer[index].addEventListener('click', function(event){
         var selections = event.target
-        var picked = selections.dataset.choices
-        if (questions[questionPosition][picked] == questions[questionPosition].answers){
+        var picked = selections.dataset.choices.toString()
+        var answer = questions[questionPosition].answer
+        if  (picked == answer){
             console.log('correct answer')
             answered.textContent = "Nice work! That is right!";
+            console.log(answer)
+            incorrectSE.pause();
+            correctSE.play();
         } else {
             timerCount = timerCount - 5;
             answered.textContent = "That's wrong! Better watch some more Star Wars!"
             console.log('this is getting hit')
+            console.log(answer)
+            console.log(picked)
+            correctSE.pause();
+            incorrectSE.play();
         }
         questionPosition++;
         question();
