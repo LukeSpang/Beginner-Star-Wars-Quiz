@@ -12,6 +12,8 @@ var questionPrompt = document.getElementById('questionPrompt');
 var finalScore = document.getElementById('finalScore');
 var userScore = document.getElementById('userScore');
 var optionBox = document.querySelector('.option');
+var userAnswer = document.querySelectorAll('.option');
+var answered = document.getElementById('answered');
 
 
 
@@ -67,11 +69,23 @@ startButton.addEventListener('click', function(event) {
     question();
 });
 
-optionBox.addEventListener('click',function(){
-    console.log('option one clicked');
-    if (questions[questionPosition].OptionOne == qustions[questionPosition].answers) 
-    console.log('correct answer');  
-})
+for (var index = 0; index < questions.length; index++) {
+    userAnswer[index].addEventListener('click', function(){
+        var selections = event.target
+        var picked = selections.dataset.choices
+        if (questions[questionPosition][picked] == questions[questionPosition].answers){
+            console.log('correct answer')
+            answered.textContent = "Nice work! That is right!";
+        } else {
+            timerCount = timerCount - 5;
+            answered.textContent = "That's wrong! Better watch some more Star Wars!"
+            console.log('this is getting hit')
+        }
+        questionPosition++;
+        question();
+    })
+    
+}
 
 
 // Timer at the top of the page function
