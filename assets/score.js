@@ -1,0 +1,1 @@
+var playerList = document.getElementById('playerList');

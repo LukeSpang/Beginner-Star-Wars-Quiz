@@ -16,6 +16,9 @@ var answered = document.getElementById('answered');
 var correctSE = new Audio('./assets/audio/correctSE.mp3');
 var incorrectSE = new Audio('./assets/audio/incorrectSE.mp3');
 
+var submitBtn = document.getElementById('submit');
+
+
 
 
 
@@ -83,6 +86,7 @@ for (var index = 0; index < questions.length; index++) {
             console.log(answer)
             incorrectSE.pause();
             correctSE.play();
+            timerCount = timerCount + 10
         } else {
             timerCount = timerCount - 5;
             answered.textContent = "That's wrong! Better watch some more Star Wars!"
@@ -126,7 +130,27 @@ function question(){
         questionPrompt.textContent = "Quiz Complete";
         userScore.textContent = timerCount;
         document.getElementById('submit-form').style.display="inline-flex";
+        answered.setAttribute('hidden', true);
 
         
     }
 }
+
+submitBtn.addEventListener('click', function(event){
+    event.preventDefault();
+    var initials = document.getElementById('initials');
+    
+    initials = {
+        initials: initials.value,
+    }
+    localStorage.setItem("initials", JSON.stringify(initials));
+    
+    var score = document.getElementById('userScore');
+    score = {
+        score: userScore.value,
+    }
+    localStorage.setItem("userScore", JSON.stringify(score));
+}
+
+)
+

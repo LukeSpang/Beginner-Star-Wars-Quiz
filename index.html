@@ -9,7 +9,7 @@
 <body>
     <header>
         <nav>
-            <a href="assets/score.js">High Scores</a>
+            <a href="score.html">High Scores</a>
             <span id="timer">Time: 75</span>
         </nav>
     </header>
@@ -29,7 +29,7 @@
         <li class = "option" id="four" data-choices="OptionFour"></li>
     </ol>
 
-    <p id="finalScore" hidden>Your Final Score is: <span id="userScore"></span></p>
+    <p id="finalScore" hidden>Your Final Score is: <span name="userScore" id="userScore"></span></p>
     <form hidden id="submit-form" method="POST" action="score.html">
         <div class = "inputInitials">
             <label for="initials">Enter Initials:</label>
