@@ -139,17 +139,14 @@ function question(){
 submitBtn.addEventListener('click', function(event){
     event.preventDefault();
     var initials = document.getElementById('initials');
-    
     initials = {
         initials: initials.value,
+        timerCount: timerCount.value,
     }
     localStorage.setItem("initials", JSON.stringify(initials));
+    localStorage.setItem('userScore', timerCount);
     
-    var score = document.getElementById('userScore');
-    score = {
-        score: userScore.value,
-    }
-    localStorage.setItem("userScore", JSON.stringify(score));
+    
 }
 
 )
