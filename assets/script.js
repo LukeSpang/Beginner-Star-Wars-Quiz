@@ -17,6 +17,7 @@ var correctSE = new Audio('./assets/audio/correctSE.mp3');
 var incorrectSE = new Audio('./assets/audio/incorrectSE.mp3');
 
 var submitBtn = document.getElementById('submit');
+var localScores = []
 
 
 
@@ -136,18 +137,32 @@ function question(){
     }
 }
 
-submitBtn.addEventListener('click', function(event){
-    event.preventDefault();
-    var initials = document.getElementById('initials');
-    initials = {
-        initials: initials.value,
-        timerCount: timerCount.value,
+//commits user initials and high score to local storage, to be pulled on socre.js
+function localStorageScores(){
+    var initials = document.getElementById('initials').value;
+    console.log(initials);
+
+    var checkLocal = JSON.parse(localStorage.getItem('scores'));
+    if (timerCount < 0){
+        timerCount = 0;
     }
-    localStorage.setItem("initials", JSON.stringify(initials));
-    localStorage.setItem('userScore', timerCount);
-    
-    
+    if (checkLocal === null){
+        localScores = [{
+            playerInitials: initials.trim(),
+            userScore: timerCount
+        }]
+    } else {
+        localScores = checkLocal.concat([{
+            playerInitials: initials.trim(),
+            userScore: timerCount}])
+    }
+    console.log(localScores)
+    localStorage.setItem("scores", JSON.stringify(localScores));
 }
 
-)
+//submit button, submits information from localstoragescores
+submitBtn.addEventListener('click', function(event){
+    event.preventDefault();
+    localStorageScores();
+    })
 

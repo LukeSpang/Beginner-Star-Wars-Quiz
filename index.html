@@ -13,14 +13,14 @@
             <span id="timer">Time: 75</span>
         </nav>
     </header>
-
+        <!---homepage prompt, disappears-->
     <h3 id="intro" data-state="visible">This is your Star Wras Quiz! Press the button below to start!</h3>
     <div id="controls">
                 <button id="startbutton">Start Quiz</button>
                 <button hidden id="nextButton">Next</button>
     </div>
     
-    
+            <!---quiz questions go here-->
     <ol hidden id="container">
         <span id = "questionPrompt"></span>
         <li class = "option" id="one" data-choices="OptionOne"></li>
@@ -29,6 +29,8 @@
         <li class = "option" id="four" data-choices="OptionFour"></li>
     </ol>
 
+
+            <!---comes up at the end of the quiz, form gets submitted to local storage-->
     <p id="finalScore" hidden>Your Final Score is: <span name="userScore" id="userScore"></span></p>
     <form hidden id="submit-form" method="POST" action="score.html">
         <div class = "inputInitials">
@@ -43,5 +45,6 @@
     
         
     <script src="assets/script.js"></script>
+    <script src="assets/score.js"></script>
 </body>
 </html>

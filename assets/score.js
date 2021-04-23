@@ -1,7 +1,33 @@
-var playerList = document.getElementById('playerList');
+var endScores = JSON.parse(localStorage.getItem('scores'));
+var resetHStn = document.getElementById('clear');
+var tryAgainBtn = document.getElementById('tryAgain');
 
-var userScore = localStorage.getItem('userScore');
-var initials = localStorage.getItem('initials'.trim);
+//creates new list items and places high scores and initials from local storage into said list. 
 
-    document.getElementById('playerList').textContent = initials + userScore;
-   
+for (let index = 0; index < endScores.length; index++) {
+    var a = document.createElement('li');
+    var b = document.createTextNode(`${index + 1}. ${endScores[index].playerInitials.toUpperCase()} - ${endScores[index].userScore}`);
+    a.appendChild(b);
+    document.querySelector('#playerList').appendChild(a);
+    a.className += 'userList';
+}
+//compares current score with new incoming score and sets
+function betterThan(a,b){
+    if (a.userScore < b.userScore){
+        return 1;
+    }
+    if (a.userScore > b.userScore){
+        return -1;
+    }
+    return 0;
+}
+//takes you back to homepage to take quiz again
+tryAgainBtn.addEventListener('click', function(event){
+    console.log(event)
+    window.location.replace("./index.html")
+});
+// resets the local storage, will display no old high scores
+resetHStn.addEventListener('click', function(){
+    localStorage.clear();
+    document.getElementById('playerList').innerHTML = ""
+})
