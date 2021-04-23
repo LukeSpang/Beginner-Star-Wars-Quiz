@@ -1,5 +1,6 @@
 var container = document.getElementById('container');
 var startButton = document.getElementById('startbutton');
+var homeimg = document.getElementById('homeimg')
 var questionPosition = 0
 var optionOneEl = document.getElementById('one')
 var optionTwoEl = document.getElementById('two')
@@ -69,6 +70,7 @@ startButton.addEventListener('click', function(event) {
     console.log(event)
     document.getElementById("intro").hidden = true;
     document.getElementById("startbutton").hidden = true;
+    document.getElementById('homeimg').style.display = "none"
     container.removeAttribute('hidden');
     setTimer();
     question();
@@ -164,5 +166,6 @@ function localStorageScores(){
 submitBtn.addEventListener('click', function(event){
     event.preventDefault();
     localStorageScores();
+    alert('Check to see if you made the high score!')
     })
 

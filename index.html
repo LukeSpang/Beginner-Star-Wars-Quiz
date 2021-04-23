@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    
     <title>Code Quiz</title>
 </head>
 <body>
     <header>
-        <nav>
-            <a href="score.html">High Scores</a>
+        <nav id="navbar">
+            <a id = "scorelink" href="score.html">High Scores</a>
             <span id="timer">Time: 75</span>
         </nav>
     </header>
@@ -17,20 +19,24 @@
     <h3 id="intro" data-state="visible">This is your Star Wras Quiz! Press the button below to start!</h3>
     <div id="controls">
                 <button id="startbutton">Start Quiz</button>
-                <button hidden id="nextButton">Next</button>
     </div>
+    <img id="homeimg" src="./assets/images/Podrace.png">
     
             <!---quiz questions go here-->
-    <ol hidden id="container">
+    <ul hidden id="container">
         <span id = "questionPrompt"></span>
         <li class = "option" id="one" data-choices="OptionOne"></li>
         <li class = "option" id="two" data-choices="OptionTwo"></li>
         <li class = "option" id="three" data-choices="OptionThree"></li>
         <li class = "option" id="four" data-choices="OptionFour"></li>
-    </ol>
+    </ul>
+    <div class ="quizFeedback">
+        <div id="answered"></div>
+    </div>
 
 
             <!---comes up at the end of the quiz, form gets submitted to local storage-->
+<container id="endPagecontainer">
     <p id="finalScore" hidden>Your Final Score is: <span name="userScore" id="userScore"></span></p>
     <form hidden id="submit-form" method="POST" action="score.html">
         <div class = "inputInitials">
@@ -39,9 +45,8 @@
         </div>
         <button id="submit">Submit Initials</button>
     </form>
-    <div class ="quizFeedback">
-        <div id="answered"></div>
-    </div>
+</container>
+    
     
         
     <script src="assets/script.js"></script>
