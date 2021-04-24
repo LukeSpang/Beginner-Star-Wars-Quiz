@@ -28,7 +28,7 @@ if (tryAgainBtn === null){
 }else{
 tryAgainBtn.addEventListener('click', function(event){
     console.log(event)
-    window.location.replace("./index.html")
+    window.location.replace("../index.html")
 })};
 // resets the local storage, will display no old high scores
 if(resetHStn === null){
