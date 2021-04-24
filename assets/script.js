@@ -6,7 +6,6 @@ var optionOneEl = document.getElementById('one')
 var optionTwoEl = document.getElementById('two')
 var optionThreeEl = document.getElementById('three')
 var optionFourEl = document.getElementById('four')
-//var nextbutton = document.getElementById('nextButton')
 var timerEl = document.getElementById('timer');
 var timerCount = 75;
 var questionPrompt = document.getElementById('questionPrompt');
@@ -29,7 +28,7 @@ var localScores = []
 
 
 
-
+//question array
 var questions = [
     {
         question: "What is the name of the first Star Wars movie released in 1977?",
@@ -77,7 +76,7 @@ startButton.addEventListener('click', function(event) {
 });
 
 
-//user input comparison to quiz answers ***bugged***
+
 for (var index = 0; index < questions.length; index++) {
     userAnswer[index].addEventListener('click', function(event){
         var selections = event.target
@@ -166,6 +165,7 @@ function localStorageScores(){
 submitBtn.addEventListener('click', function(event){
     event.preventDefault();
     localStorageScores();
+    //alert comes up to check high scores
     alert('Check to see if you made the high scores!')
     })
 
