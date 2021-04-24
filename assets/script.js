@@ -166,6 +166,6 @@ function localStorageScores(){
 submitBtn.addEventListener('click', function(event){
     event.preventDefault();
     localStorageScores();
-    alert('Check to see if you made the high score!')
+    alert('Check to see if you made the high scores!')
     })
 
